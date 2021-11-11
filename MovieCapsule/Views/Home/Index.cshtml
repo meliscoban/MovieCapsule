@@ -8,17 +8,17 @@
 <form>
     <div class="row align-items-center">
         <div class="col-auto">
-            <select name="genre" asp-items="Model.Genres" class="form-control">
+            <select name="genre" asp-for="SelectedGenreId" asp-items="Model.Genres" class="form-control">
                 <option value="">Tümü</option>
             </select>
         </div>
         <div class="col-auto">
-            <button class="btn btn-secondary">Listele</button>
+            <button class="btn btn-secondary">List</button>
         </div>
     </div>
 </form>
 
-<table class="table table-striped">
+<table class="table table-striped mt-3">
     <thead>
         <tr>
             <th>Id</th>

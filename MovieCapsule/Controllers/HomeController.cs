@@ -21,12 +21,13 @@ namespace MovieCapsule.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? genre)
         {
             var vm = new HomeViewModel()
             {
                 Genres = _context.Genres.Select(x => new SelectListItem() { Text = x.Name, Value = x.Id.ToString() }).ToList(),
-                Movies = _context.Movies.Include(x => x.Genres).ToList()
+                Movies = _context.Movies.Include(x => x.Genres).Where(x => !genre.HasValue || x.Genres.Any(g => g.Id == genre)).ToList(),
+                SelectedGenreId = genre
             };
 
             return View(vm);

@@ -13,5 +13,7 @@ namespace MovieCapsule.ViewModels
         public List<Movie> Movies { get; set; }
 
         public List<SelectListItem> Genres { get; set; }
+
+        public int? SelectedGenreId { get; set; }
     }
 }
